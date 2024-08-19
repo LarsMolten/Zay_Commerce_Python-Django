@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>LISTE DE PRODUITS</h1>
+
+        <button><a href="add/">Ajouter</a></button><br>
+        <table border=1>
+            {% for x in produits %}
+            <tr>
+                <td><a href="update/{{x.id}}">{{x.id}}</a></td>
+                <td>{{x.titre}}</td>
+                <td>{{x.prix}}</td>
+                <td>{{x.description}}</td>
+                <td><a href="delete/{{ x.id }}"> supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

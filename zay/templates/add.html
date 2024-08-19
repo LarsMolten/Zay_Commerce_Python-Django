@@ -1,0 +1,17 @@
+<h1>NOUVEAU PRODUIT</h1>
+
+<form action="addrecord/" method="post">
+    {% csrf_token %}
+    Titre:<br>
+        <input name="titre">
+        <br><br>
+    Prix:<br>
+        <input name="prix">
+        <br>
+        <br>
+    Description:<br>
+        <input name="description">
+        <br>
+        <br>
+    <button type="submit">OK</button>
+</form>

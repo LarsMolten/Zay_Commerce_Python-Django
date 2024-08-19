@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'Head/head.html' %}
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    {% include 'TopNav/top_nav.html' %}
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    {% include 'Header/header.html' %}
+    <!-- Close Header -->
+
+    <!-- Modal -->
+
+    <!-- Start Banner Hero -->
+   {% include 'Hero/hero.html' %}
+    <!-- End Banner Hero -->
+
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Categories of The Month</h1>
+                <p>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+          {% for x in categories %}
+
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="{% url 'shop' %}"><img src="{{ x.image_cat.url }}" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">{{x.name}}</h5>
+                <p class="text-center"><a href="{% url 'shop' %}"  class="btn btn-success">Go Shop</a></p>
+            </div>
+
+          {% endfor%}
+        </div>
+    </section>
+    <!-- End Categories of The Month -->
+
+
+    <!-- Start Featured Product -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Featured Product</h1>
+                    <p>
+                        Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                {% for p in produits %}
+                    
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'shop' %}">
+                            <img src= "{{p.image.url}}" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"> </i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">{{p.price}} Ar</li>
+                            </ul>
+                            <a href="{% url 'shop' %}" class="h2 text-decoration-none text-dark">{{p.name}}</a>
+                            <p class="card-text">
+                                {{p.titre}}
+                            </p>
+                            <p class="text-muted">Reviews (24) {{ forloop.counter }}</p>
+                        </div>
+                    </div>
+                </div>
+               
+            {%endfor%}
+            </div>
+        </div>
+    </section>
+    <!-- End Featured Product -->
+
+
+    <!-- Start Footer -->
+    {% include 'Footer/footer.html' %}
+   
+    <!-- End Footer -->
+
+   {% include 'Script/script.html' %}
+
+</body>
+
+</html>
